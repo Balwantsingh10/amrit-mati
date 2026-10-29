@@ -1,0 +1,481 @@
+/* ==========================================================================
+   AMRIT MATI — Modern Heirloom Indian Pantry Design System
+   Visual Direction: Warm Ivory, Deep Forest Green, Restrained Turmeric/Gold
+   Animation Reference: Better Nutrition (smooth reveals, marquees, floating badges, video showcase)
+   ========================================================================== */
+
+:root {
+  --color-forest: #173F2C;
+  --color-forest-deep: #0E291C;
+  --color-forest-light: #23583E;
+  --color-ivory: #F5F0E3;
+  --color-ivory-light: #FAF7F2;
+  --color-ivory-warm: #EFE8D8;
+  --color-card-bg: #FCFAF6;
+  --color-gold: #B8944E;
+  --color-gold-light: #D8B975;
+  --color-gold-dim: #EADBBE;
+  --color-burgundy: #7A1F28;
+  --color-burgundy-light: #F8EBEB;
+  --color-charcoal: #292B25;
+  --color-muted: #66665A;
+  --color-border: #E4DCcb;
+  --color-border-subtle: #EDE6D8;
+  --color-border-forest: rgba(23, 63, 44, 0.16);
+
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  --shadow-sm: 0 1px 3px rgba(41, 43, 37, 0.05);
+  --shadow-md: 0 4px 16px -2px rgba(23, 63, 44, 0.08);
+  --shadow-lg: 0 12px 32px -4px rgba(23, 63, 44, 0.12);
+  --shadow-drawer: -8px 0 40px rgba(14, 41, 28, 0.22);
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 14px;
+  --radius-full: 9999px;
+  
+  --transition-fast: 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-sans);
+  background-color: var(--color-ivory);
+  color: var(--color-charcoal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  min-height: 100vh;
+  line-height: 1.6;
+  background-color: var(--color-ivory);
+  overflow-x: hidden;
+}
+
+/* Typography styles matching image moodboard */
+h1, h2, h3, h4, .font-serif {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  color: var(--color-forest);
+  letter-spacing: -0.015em;
+  line-height: 1.15;
+}
+
+p {
+  color: var(--color-charcoal);
+  font-size: 0.96rem;
+  line-height: 1.65;
+}
+
+/* Layout Utilities */
+.container {
+  width: 100%;
+  max-width: 1240px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Buttons */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: var(--color-forest);
+  color: var(--color-ivory);
+  padding: 0.85rem 1.65rem;
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border: 1px solid var(--color-forest);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-forest-deep);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(23, 63, 44, 0.25);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: transparent;
+  color: var(--color-forest);
+  padding: 0.85rem 1.65rem;
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border: 1px solid var(--color-forest);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-decoration: none;
+}
+
+.btn-secondary:hover {
+  background-color: rgba(23, 63, 44, 0.08);
+  transform: translateY(-1px);
+}
+
+.btn-gold {
+  background-color: var(--color-gold);
+  color: #fff;
+  border: 1px solid var(--color-gold);
+}
+
+.btn-gold:hover {
+  background-color: #a4823f;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(184, 148, 78, 0.35);
+}
+
+.btn-sm {
+  padding: 0.5rem 0.9rem;
+  font-size: 0.82rem;
+}
+
+/* Pill Badges */
+.badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-full);
+}
+
+.badge-gold {
+  background-color: #FAF4E5;
+  color: #8C6A24;
+  border: 1px solid rgba(184, 148, 78, 0.3);
+}
+
+.badge-forest {
+  background-color: #EBF2ED;
+  color: var(--color-forest);
+  border: 1px solid rgba(23, 63, 44, 0.2);
+}
+
+.badge-burgundy {
+  background-color: var(--color-burgundy-light);
+  color: var(--color-burgundy);
+  border: 1px solid rgba(122, 31, 40, 0.2);
+}
+
+/* Subtle decorative paper grain texture overlay */
+.bg-grain {
+  background-color: var(--color-ivory);
+  background-image: radial-gradient(rgba(41, 43, 37, 0.035) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+.bg-warm-sand {
+  background-color: var(--color-card-bg);
+}
+
+/* Announcement Bar */
+.announcement-bar {
+  background-color: var(--color-forest-deep);
+  color: var(--color-ivory);
+  padding: 0.55rem 1rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.03em;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  border-bottom: 1px solid rgba(184, 148, 78, 0.35);
+}
+
+.announcement-highlight {
+  color: var(--color-gold-light);
+  font-weight: 600;
+}
+
+/* Sticky Header */
+.sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: rgba(245, 240, 227, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-border);
+  transition: all var(--transition-fast);
+}
+
+.header-scrolled {
+  box-shadow: 0 4px 18px rgba(23, 63, 44, 0.06);
+}
+
+/* Product Card Styling */
+.product-card {
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth), border-color var(--transition-smooth);
+  position: relative;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px -4px rgba(23, 63, 44, 0.14);
+  border-color: rgba(23, 63, 44, 0.35);
+}
+
+.product-image-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3.4;
+  overflow: hidden;
+  background-color: #EFE9DC;
+}
+
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.07);
+}
+
+/* Pack Variant Selector Pill */
+.pack-selector-pill {
+  padding: 0.35rem 0.65rem;
+  font-size: 0.78rem;
+  font-weight: 500;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background-color: #fff;
+  color: var(--color-charcoal);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.pack-selector-pill.active {
+  background-color: var(--color-forest);
+  color: var(--color-ivory);
+  border-color: var(--color-forest);
+  box-shadow: 0 2px 6px rgba(23, 63, 44, 0.2);
+}
+
+.pack-selector-pill:hover:not(.active) {
+  border-color: var(--color-forest);
+  background-color: #f6f3eb;
+}
+
+/* Better Nutrition inspired slide-out cart drawer */
+.drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(14, 41, 28, 0.55);
+  backdrop-filter: blur(5px);
+  z-index: 100;
+  transition: opacity var(--transition-smooth);
+  animation: fadeIn 0.25s ease-out;
+}
+
+.cart-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  max-width: 480px;
+  background-color: var(--color-ivory-light);
+  box-shadow: var(--shadow-drawer);
+  z-index: 101;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform var(--transition-smooth);
+}
+
+.cart-drawer.open {
+  transform: translateX(0);
+}
+
+/* Free Delivery Progress Meter */
+.free-delivery-bar {
+  background-color: var(--color-border-subtle);
+  border-radius: var(--radius-full);
+  height: 6px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.free-delivery-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-gold) 0%, #317855 100%);
+  border-radius: var(--radius-full);
+  transition: width 0.45s ease-out;
+}
+
+/* Mobile Sticky Purchase Bar */
+.mobile-sticky-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(250, 247, 242, 0.98);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid var(--color-border);
+  padding: 0.75rem 1rem;
+  z-index: 45;
+  box-shadow: 0 -4px 18px rgba(23, 63, 44, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  animation: slideUp 0.3s ease-out;
+}
+
+@media (min-width: 768px) {
+  .mobile-sticky-bar {
+    display: none;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-ivory);
+}
+::-webkit-scrollbar-thumb {
+  background: #C4B9A4;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold);
+}
+
+/* ==========================================================================
+   ANIMATIONS (Reference: Better Nutrition DTIC Interactions)
+   ========================================================================== */
+
+/* Infinite Marquee Ticker */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 28s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marqueeScroll {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Floating Badges */
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-7px); }
+}
+
+.animate-float {
+  animation: floatSlow 4s ease-in-out infinite;
+}
+
+/* Shimmer Highlight */
+@keyframes shimmerSweep {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.shimmer-text {
+  background: linear-gradient(90deg, #173F2C 0%, #B8944E 50%, #173F2C 100%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmerSweep 6s infinite ease-in-out;
+}
+
+/* Fade in & Slide Up */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Pulse animation for fresh milling notice */
+@keyframes softPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.85; transform: scale(1.02); }
+}
+
+.animate-pulse-soft {
+  animation: softPulse 2.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Video Frame Ambient Glow */
+.video-frame-container {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid rgba(184, 148, 78, 0.4);
+  box-shadow: 0 20px 48px -12px rgba(14, 41, 28, 0.28), 0 0 0 1px rgba(245, 240, 227, 0.5) inset;
+  background-color: #0E291C;
+}
+
+/* High contrast focus ring for keyboard accessibility */
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
